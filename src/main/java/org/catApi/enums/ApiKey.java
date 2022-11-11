@@ -1,4 +1,4 @@
-package org.example.enums;
+package org.catApi.enums;
 
 public enum ApiKey {
     API_KEY("live_2XMRWf7Qjw6bi4KIahJZYONZvmCwRzdnxnbfnXlGfW5ATCzMeElzq9EXvmrdJzJb");

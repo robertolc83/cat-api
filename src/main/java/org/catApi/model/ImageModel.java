@@ -1,4 +1,4 @@
-package org.example.model;
+package org.catApi.model;
 
 public class ImageModel {
     private String url;

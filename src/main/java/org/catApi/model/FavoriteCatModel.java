@@ -1,9 +1,9 @@
-package org.example.model;
+package org.catApi.model;
 
 public class FavoriteCatModel {
     private String id;
     private String image_id;
-    private ImageModel imageModel;
+    private ImageModel image;
 
     public String getId() {
         return id;
@@ -22,10 +22,10 @@ public class FavoriteCatModel {
     }
 
     public ImageModel getImage() {
-        return imageModel;
+        return image;
     }
 
-    public void setImage(ImageModel imageModel) {
-        this.imageModel = imageModel;
+    public void setImage(ImageModel image) {
+        this.image = image;
     }
 }

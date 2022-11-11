@@ -1,10 +1,10 @@
-package org.example.ui;
+package org.catApi.ui;
 
-import org.example.api.CatApi;
-import org.example.model.FavoriteCatModel;
-import org.example.model.SeeCatModel;
-import org.example.service.CatService;
-import javax.swing.*;
+import org.catApi.api.CatApi;
+import org.catApi.model.FavoriteCatModel;
+import org.catApi.model.SeeCatModel;
+import org.catApi.service.CatService;
+import javax.swing.JOptionPane;
 
 public class Ui {
 
@@ -30,7 +30,12 @@ public class Ui {
                     break;
                 case "See Favorites":
                     FavoriteCatModel[] favoriteCatModels = CatApi.getApiFavoriteCats();
-                    favoriteCatMenu(favoriteCatModels);
+                    if(favoriteCatModels.length > 0){
+                        favoriteCatMenu(favoriteCatModels);
+                    } else {
+                        JOptionPane.showMessageDialog(null,
+                                "There Are No Images in Favorites");
+                    }
                     break;
                 case "Exit":
                     response = 1;
@@ -85,34 +90,36 @@ public class Ui {
             final String[] OPTIONS = {"See other image", "Delete Favorite", "Return to Main Menu"};
 
             for (FavoriteCatModel favoriteCatModel : favoriteCatModels) {
-                String option = (String) JOptionPane.showInputDialog(null,
-                        "(=^･ｪ･^=)",
-                        favoriteCatModel.getId(),
-                        JOptionPane.INFORMATION_MESSAGE,
-                        //Obtenemos la imagen de la url
-                        CatService.resizeImageService(favoriteCatModel.getImage().getUrl()),
-                        OPTIONS,
-                        OPTIONS[0]);
+                if(CatService.resizeImageService(favoriteCatModel.getImage().getUrl()) != null){
+                    String option = (String) JOptionPane.showInputDialog(null,
+                            "(=^･ｪ･^=)",
+                            favoriteCatModel.getId(),
+                            JOptionPane.INFORMATION_MESSAGE,
+                            //Obtenemos la imagen de la url
+                            CatService.resizeImageService(favoriteCatModel.getImage().getUrl()),
+                            OPTIONS,
+                            OPTIONS[0]);
 
-                switch (option) {
-                    case "See other image":
-                        break;
-                    case "Delete Favorite":
-                        if(CatApi.deleteApiFavoriteCat(favoriteCatModel.getId())){
-                            System.out.println("Cat Deleted Successfully");
-                        }else {
-                            System.out.println("The Cat Could Not Be Deleted");
-                        }
-                        break;
-                    case "Return to Main Menu":
-                        mainMenu();
-                        break;
-                    default:
-                        System.out.println("CatMenu: Incorrect Option");
+                    switch (option) {
+                        case "See other image":
+                            break;
+                        case "Delete Favorite":
+                            if(CatApi.deleteApiFavoriteCat(favoriteCatModel.getId())){
+                                System.out.println("Cat Deleted Successfully");
+                            }else {
+                                System.out.println("The Cat Could Not Be Deleted");
+                            }
+                            break;
+                        case "Return to Main Menu":
+                            mainMenu();
+                            break;
+                        default:
+                            System.out.println("CatMenu: Incorrect Option");
+                    }
                 }
             }//for
         } else {
-            JOptionPane.showInputDialog(null,"There Are No Images in Favorites");
+            JOptionPane.showMessageDialog(null,"There Are No Images in Favorites");
         }
     }
 }

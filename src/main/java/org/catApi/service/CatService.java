@@ -1,8 +1,8 @@
-package org.example.service;
+package org.catApi.service;
 
-import org.example.api.CatApi;
-import org.example.model.CatModel;
-import org.example.model.SeeCatModel;
+import org.catApi.api.CatApi;
+import org.catApi.model.CatModel;
+import org.catApi.model.SeeCatModel;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -38,7 +38,7 @@ public class CatService {
     /**
      * Descripción: Método que recibe una url de una imagen y regresa una imagen de 800 x 800
      *
-     * @param urlCat
+     * @param
      * @return imageIcon
      */
     public static ImageIcon resizeImageService(String urlCat){
@@ -52,11 +52,12 @@ public class CatService {
             if(imageIcon.getIconWidth() > 800 || imageIcon.getIconHeight() > 800){
                 //Redimencionamos la imagen
                 Image imageOld = imageIcon.getImage();
-                Image imageNew = imageOld.getScaledInstance(800,800, Image.SCALE_SMOOTH);
+                Image imageNew = imageOld.getScaledInstance(600,600, Image.SCALE_SMOOTH);
                 imageIcon = new ImageIcon(imageNew);
             }
             return imageIcon;
         }catch (IOException ioException){
+            System.out.println("IN resizeImageService");
             System.out.println(ioException);
         }
         return null;

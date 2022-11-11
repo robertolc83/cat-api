@@ -1,10 +1,10 @@
-package org.example.api;
+package org.catApi.api;
 
 import com.google.gson.Gson;
 import okhttp3.*;
-import org.example.enums.ApiKey;
-import org.example.model.CatModel;
-import org.example.model.FavoriteCatModel;
+import org.catApi.enums.ApiKey;
+import org.catApi.model.CatModel;
+import org.catApi.model.FavoriteCatModel;
 
 import java.io.IOException;
 
