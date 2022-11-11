@@ -1,8 +1,6 @@
-package org.example;
+package org.catApi;
 
-import org.example.ui.Ui;
-
-import java.io.IOException;
+import org.catApi.ui.Ui;
 
 public class Main {
     public static void main(String[] args) {

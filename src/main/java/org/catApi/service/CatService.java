@@ -1,8 +1,8 @@
-package org.example.service;
+package org.catApi.service;
 
-import org.example.api.CatApi;
-import org.example.model.CatModel;
-import org.example.model.SeeCatModel;
+import org.catApi.api.CatApi;
+import org.catApi.model.CatModel;
+import org.catApi.model.SeeCatModel;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;

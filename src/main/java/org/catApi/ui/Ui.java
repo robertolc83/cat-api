@@ -1,9 +1,9 @@
-package org.example.ui;
+package org.catApi.ui;
 
-import org.example.api.CatApi;
-import org.example.model.FavoriteCatModel;
-import org.example.model.SeeCatModel;
-import org.example.service.CatService;
+import org.catApi.api.CatApi;
+import org.catApi.model.FavoriteCatModel;
+import org.catApi.model.SeeCatModel;
+import org.catApi.service.CatService;
 import javax.swing.*;
 
 public class Ui {
